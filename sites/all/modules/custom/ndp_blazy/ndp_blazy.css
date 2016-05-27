@@ -1,0 +1,27 @@
+/*----------------------------------*/
+/* B-LAZY */
+/*----------------------------------*/
+
+.b-lazy{
+	
+    -webkit-transition: background-image 0.3s;
+       -moz-transition: background-image 0.3s;
+         -o-transition: background-image 0.3s;
+            transition: background-image 0.3s;
+
+    background-image: url('ajax-loader.gif');
+		background-position: 20px 20px;
+		background-size: auto;
+		background-repeat: no-repeat;
+		background-color: rgba(220,220,220,1);
+}
+
+/* gif loading image */
+
+
+.b-lazy.b-loaded{
+		background-position: left top;
+		background-size: cover;
+		background-color: transparent;
+}
+

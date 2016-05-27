@@ -1,0 +1,28 @@
+<?php
+
+/**
+	* ADMIN PATHS
+	* each array item can contain a path to foce use of the admin theme
+	* useful for scenarios when a module does not force it - ie contextual editing of eck entities
+	*/
+function ndp_glue_admin_paths() {
+  $paths = array(
+    'card/*/*/edit' => TRUE,
+  );
+  return $paths;
+}
+
+
+/**
+ * FILE ENTITY
+ */
+ 
+/**
+ * Implements hook_file_view_alter() from File Entity.
+ */
+function ndp_glue_file_view_alter(&$build, $type) {
+  if ($build['#bundle'] === 'video' || $build['#bundle'] === 'image') {
+    unset($build['#contextual_links']);
+    unset($build['links']);
+  }
+}

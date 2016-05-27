@@ -1,0 +1,4 @@
+name = NDP B-Lazy
+description = supporting markup required for use of the b-lazy.js plugin. Adds data-src when required.
+core = 7.x
+package = NDP

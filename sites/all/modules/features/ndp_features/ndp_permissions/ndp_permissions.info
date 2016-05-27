@@ -1,0 +1,8 @@
+name = Roles & Permissions
+description = Roles and permissions - warning, do not necessarily add all permissions - some should be in relative features
+core = 7.x
+package = _SITE
+version = 7.x-1.0
+project = ndp_permissions
+features[features_api][] = api:2
+project path = sites/all/modules/features

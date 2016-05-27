@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NDP General Settings feature.
+ */
+
+include_once 'ndp_settings.features.inc';

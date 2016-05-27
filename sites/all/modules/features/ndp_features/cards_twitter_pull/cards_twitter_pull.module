@@ -1,0 +1,42 @@
+<?php
+/**
+ * @file
+ * Code for the Cards - Twitter Pull feature.
+ */
+
+include_once 'cards_twitter_pull.features.inc';
+
+
+/**
+ * Implements hook_preprocess().
+ *
+ * Add class and data-src for background images to entity items that have the correct image field.
+ */
+function cards_twitter_pull_preprocess(&$variables, $hook) {
+  
+	/**
+	 * RUN ON TWITTER PULL CARD ONLY
+	 * ------------------------------------
+	 */
+  if ( !empty($variables['entity_type']) && $variables['entity_type'] === 'card'){
+	
+		$type = $variables['entity_type'];
+		$entity = $variables[$type];
+		
+		if($entity->type === 'twitter_pull' && $variables['view_mode'] != 'teaser'){
+			
+			$twitkey = field_get_items($type, $variables[$type], 'field_tweet_key');
+			$items = field_get_items($type, $variables[$type], 'field_tweet_items');
+			$t_title = $variables['title'];
+			
+			// hide entity title
+			$variables['title'] = '';
+			
+			// replace content with rendered tweets from twitter pull function
+			$variables['content'] = twitter_pull_render($twitkey[0]['safe_value'], $variables['title'], $items[0]['value']);
+			
+		}
+			
+	}
+	
+}

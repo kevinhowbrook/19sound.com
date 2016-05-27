@@ -1,0 +1,212 @@
+
+; -----------------------------------------------------------------------------
+;                             Introduction
+; -----------------------------------------------------------------------------
+; Profiler .info, showing you how to create your
+; own Install profiles easily. This file uses Drupal's info format, which is 
+; very similar to PHP's own ini format, however you can use nested arrays in 
+; Drupal's version, which comes in handy for lots of stuff, as you'll see below.
+;
+; for more info see - http://drupalcode.org/project/profiler.git/blob_plain/refs/heads/7.x-2.x:/README.txt
+;
+; -----------------------------------------------------------------------------
+
+name = NDP Installation
+description = NDP Base installation profile for Drupal 7.
+core = 7.x
+version = 2.0
+
+theme = ndp_responsive
+
+; -----------------------------------------------------------------------------
+;                                  Modules
+; -----------------------------------------------------------------------------
+; List the modules (core, contrib and/or features) to be enabled in the
+; dependencies[] array. Any dependencies of the listed modules will be detected
+; and enabled automatically.
+; -----------------------------------------------------------------------------
+; CORE
+dependencies[] = block
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dblog
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = rdf
+
+;CONTRIB
+dependencies[] = admin_views
+dependencies[] = backup_migrate
+dependencies[] = block_class
+dependencies[] = ctools
+dependencies[] = date
+dependencies[] = date_popup_authored
+dependencies[] = diff
+dependencies[] = entity
+dependencies[] = entityreference
+dependencies[] = entity_token
+dependencies[] = entity_view_mode
+dependencies[] = fences
+dependencies[] = field_group
+dependencies[] = honeypot
+dependencies[] = inline_entity_form
+dependencies[] = inline_entity_form_preview
+dependencies[] = jquery_update
+dependencies[] = libraries
+dependencies[] = linkit
+dependencies[] = menu_block
+dependencies[] = menu_trail_by_path
+dependencies[] = module_filter
+dependencies[] = navbar
+dependencies[] = pathauto
+dependencies[] = pathologic
+dependencies[] = token
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = views_bulk_operations
+dependencies[] = webform
+
+;MEDIA RELATED
+dependencies[] = wysiwyg
+dependencies[] = media
+dependencies[] = media_internet
+dependencies[] = media_wysiwyg
+dependencies[] = media_wysiwyg_view_mode
+dependencies[] = media_vimeo
+dependencies[] = media_oembed
+dependencies[] = media_youtube
+dependencies[] = imagecache_actions
+dependencies[] = imagecache_canvasactions
+
+;SEO RELATED
+dependencies[] = metatag
+dependencies[] = metatag_views
+dependencies[] = metatag_opengraph
+dependencies[] = metatag_facebook
+dependencies[] = metatag_twitter_cards
+dependencies[] = redirect
+dependencies[] = site_map
+dependencies[] = xmlsitemap
+dependencies[] = xmlsitemap_node
+
+;FIELD FORMATTER
+dependencies[] = linked_field
+dependencies[] = textformatter
+dependencies[] = textformatter_contrib
+
+; BOOTSTRAP TOOLS
+dependencies[] = ds
+dependencies[] = ds_ui
+dependencies[] = ds_extras
+dependencies[] = ds_format
+dependencies[] = respondjs
+
+; FEATURES
+dependencies[] = features
+dependencies[] = fe_block
+dependencies[] = strongarm
+
+; DEV
+dependencies[] = devel
+dependencies[] = diff
+
+; CUSTOM
+dependencies[] = ndp_glue
+
+; NDP FEATURES
+dependencies[] = ndp_settings
+dependencies[] = ndp_permissions
+dependencies[] = ndp_media
+dependencies[] = ndp_blocks
+dependencies[] = ndp_menus
+
+; -----------------------------------------------------------------------------
+;                                  Variables
+; -----------------------------------------------------------------------------
+; These variables should be pretty self explanatory, as they are just an array
+; of key value pairs for items in the variable table. Nested arrays also can 
+; crop up here, since variables can be arrays.
+;
+; Also, make note of the site_name and site_mail variables below. These 
+; variables need to be set if you want to bypass the Configuration form during 
+; installation (@see Users for more information on how this is accomplished).
+; -----------------------------------------------------------------------------
+
+variables[features_admin_show_component_ctools] = 1
+variables[features_admin_show_component_dependencies] = 1
+variables[features_admin_show_component_field_base] = 1
+variables[features_admin_show_component_field_instance] = 1
+variables[features_admin_show_component_filter] = 1
+variables[features_admin_show_component_image] = 1
+variables[features_admin_show_component_linkit_profiles] = 1
+variables[features_admin_show_component_menu_custom] = 1
+variables[features_admin_show_component_menu_links] = 1
+variables[features_admin_show_component_node] = 1
+variables[features_admin_show_component_taxonomy] = 1
+variables[features_admin_show_component_user_permission] = 1
+variables[features_admin_show_component_user_role] = 1
+variables[features_admin_show_component_views_view] = 1
+variables[features_admin_show_component_wysiwyg] = 1
+
+variables[features_default_export_path] = 'sites/all/modules/features'
+variables[features_rebuild_on_flush] = 1
+
+variables[file_default_scheme] = 'public'
+variables[file_private_path] = 'sites/default/files/private'
+variables[file_public_path] = 'sites/default/files'
+variables[file_temporary_path] = '/tmp'
+
+variables[filter_fallback_format] = 'plain_text'
+
+variables[jquery_update_compression_type] = 'min'
+variables[jquery_update_jquery_admin_version] = '1.5'
+variables[jquery_update_jquery_cdn] = 'none'
+variables[jquery_update_jquery_version] = '1.7'
+
+variables[media_icon_base_directory] = 'public://media-icons'
+
+variables[menu_options_page][0] = 'main-menu'
+
+variables[menu_parent_page] = 'main-menu:0'
+
+variables[node_admin_theme] = TRUE
+variables[node_options_page][0] = 'status'
+variables[node_preview_page] = '1'
+variables[node_submitted_page] = FALSE
+
+variables[pathauto_node_pattern] = '[node:menu-link:parents:join-path]/[node:title]'
+variables[pathauto_file_pattern] = 'file/[file:name]'
+variables[pathauto_taxonomy_term_pattern] = '[term:vocabulary]/[term:name]'
+variables[pathauto_user_pattern] = 'users/[user:name]'
+
+variables[theme_default] = 'ndp_responsive'
+
+variables[user_pictures] = TRUE
+variables[user_picture_dimensions] = '1024x1024'
+variables[user_picture_file_size] = '800'
+variables[user_picture_style] = 'thumbnail'
+variables[user_register] = 2
+
+variables[site_footer] = All rights reserved
+
+variables[site_frontpage] = node/1
+
+
+; -----------------------------------------------------------------------------
+;                                    Nodes
+; -----------------------------------------------------------------------------
+
+;Style guide
+nodes[front][type] = page
+nodes[front][title] = Welcome
+nodes[front][uid] = 1
+nodes[front][body][und][0][format] = full_html
+nodes[front][body][und][0][value] = <p class="introtext">Updated install profile : Oct 2015 >> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat risus ut tristique tincidunt. Etiam a tempus mauris. Etiam eget sodales sapien. Vestibulum aliquet varius congue. Aenean condimentum aliquam consectetur.</p><p>Nullam elementum magna accumsan nibh porta dignissim. Quisque iaculis elit tortor, accumsan <a href="#">Duis porttitor felis</a> ultrices ac. Etiam luctus enim eget quam pharetra interdum. Duis porttitor felis in lectus laoreet consequat non ac sapien. Curabitur faucibus elit quis leo sagittis sodales. Nunc pulvinar porta justo, vel pulvinar libero mattis eget. Etiam facilisis diam nec nulla elementum, in auctor risus elementum. Morbi feugiat luctus arcu, eu placerat nunc tempus vitae.</p><h2>Heading 2</h2><p>Sed lacus lectus, luctus sed lacus in, sollicitudin sollicitudin purus. Phasellus rhoncus auctor ultricies. Duis eget luctus mi, quis auctor lectus. Nulla pulvinar quam non augue lacinia volutpat. Etiam nec erat interdum, tempor lorem ut, fringilla dolor. Pellentesque fermentum nec lacus ut varius.</p><h3>Heading 3</h3><p>Etiam quis accumsan nibh. Maecenas in malesuada ante. Maecenas sed nibh sem. Sed pharetra nisi quis egestas ultricies. Donec congue nibh a accumsan cursus. Nullam eget nulla libero. Morbi scelerisque ultricies libero, at fermentum turpis. Praesent pretium sed metus sit amet aliquet. Pellentesque congue aliquet est imperdiet posuere.</p><h4>Heading 4</h4><p class="introtext">Sed ac scelerisque orci, quis fermentum sapien. Ut venenatis a ligula vel mattis. Duis pharetra, turpis a lacinia consequat, metus lorem tristique neque, eu molestie justo odio quis justo. In iaculis dictum consequat. In eleifend neque sem. Vestibulum tempus eros sit amet orci sollicitudin, sed dignissim mauris commodo.</p><p>Phasellus sed dolor rutrum, elementum purus eu, semper ipsum. Fusce cursus, neque non laoreet fermentum, ante turpis viverra nulla, vel rhoncus erat ante sed orci. <span class="highlight">Quisque ornare euismod sapien vel mollis</span>.</p><p>Donec elit nisi, euismod vitae adipiscing non, commodo ultrices ligula. Sed id nibh vulputate, tincidunt libero nec, porttitor ipsum. Nulla facilisi. Sed non lacus tristique purus mollis sodales id id felis. In molestie, dui vestibulum condimentum iaculis, arcu libero gravida orci, id posuere justo nisl facilisis libero.</p><ul><li>In hac habitasse platea dictumst.</li><li>Proin nec mauris sed neque tempor varius.</li><li>Sed lectus eros, vehicula sit amet suscipit sed, vestibulum nec lectus.</li><li>Mauris id tortor id turpis elementum faucibus.</li></ul><p>Donec dui nunc, pellentesque vitae nibh a, sollicitudin pretium diam. Quisque lobortis, urna eget molestie suscipit, arcu tortor adipiscing diam, sit amet mattis quam diam id magna. Nam mollis tellus vel neque suscipit, et luctus sem aliquet. Sed sapien purus, fringilla ultrices feugiat ac, auctor eu nis.</p><p>Nulla dictum iaculis eros in tincidunt. Duis nulla ante, luctus a ullamcorper ac, aliquet ut est. Nunc quis euismod neque. In at enim bibendum, pulvinar mi vel, mollis mauris. Cras vitae risus sapien. Fusce rhoncus magna ipsum, quis accumsan tortor eleifend eget. Aliquam nunc metus, porttitor at lobortis ac, malesuada id neque. Proin imperdiet nibh eget nisi tristique, sagittis rutrum felis mollis. Phasellus aliquet tortor eu tortor consequat fermentum.</p>

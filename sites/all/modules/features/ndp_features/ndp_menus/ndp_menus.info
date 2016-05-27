@@ -1,0 +1,13 @@
+name = Menus
+description = Menu settings and items, use with care, normally only for main menus
+core = 7.x
+package = _SITE
+version = 7.x-1.0
+project = ndp_menus
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = main-menu
+features[menu_custom][] = user-menu
+features[menu_links][] = main-menu_home:<front>
+project path = sites/all/modules/features

@@ -1,0 +1,7 @@
+name = NDP Glue
+description = Small snippets of helper code, used to implement minor system improvements.
+core = 7.x
+
+dependencies[] = file_entity
+
+package = Custom

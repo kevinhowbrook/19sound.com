@@ -1,0 +1,23 @@
+<?php
+ 
+ /**
+ 	* Implements hook_preprocess_node
+ 	*/
+ 	function sound_private_preprocess_page(){
+ 		global $user;
+ 		$roles = $user->roles;
+ 		$lock = 0;
+ 		if (in_array("anonymous user", $roles)) {
+    	$lock = 1;
+		}
+ 		if ($node = menu_get_object()) {
+  		 $node = node_load($node->nid);
+  		 
+  		 if($node->type == 'work_post' && isset($node->field_private_work['und'][0]['value']) && $lock == 1){
+  		 		if($node->field_private_work['und'][0]['value'] == 1){
+  		      drupal_goto('<front>');
+    		 		} else {
+  		 		}
+  		 }
+		}
+ 	} 

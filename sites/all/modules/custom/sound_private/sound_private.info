@@ -1,0 +1,4 @@
+name = Sound Private
+description = Redirect anan users if they find their way to a private node. The shouldn't but just incase
+core = 7.x
+package = Custom

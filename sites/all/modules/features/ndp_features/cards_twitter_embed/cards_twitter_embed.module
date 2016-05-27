@@ -1,0 +1,49 @@
+<?php
+/**
+ * @file
+ * Code for the Cards - Twitter Embed feature.
+ */
+
+include_once 'cards_twitter_embed.features.inc';
+
+
+
+/**
+ * Twitter card type - use the twitter_pull function to render
+ */
+	
+	
+/**
+ * Implements hook_preprocess().
+ *
+ * Add class and data-src for background images to entity items that have the correct image field.
+ */
+function cards_twitter_embed_preprocess(&$variables, $hook) {
+  
+	/**
+	 * RUN ON TWITTER EMBED CARD ONLY
+	 * ------------------------------------
+	 */
+  if ( !empty($variables['entity_type']) && $variables['entity_type'] === 'card'){
+	
+		$type = $variables['entity_type'];
+		$entity = $variables[$type];
+		
+		if($entity->type === 'twitter_embed' && $variables['view_mode'] != 'teaser'){
+			
+			$tweet = field_get_items($type, $variables[$type], 'field_twitter_embed');
+
+			// hide entity title
+			$variables['title'] = '';
+			
+			$variables['content'] = check_markup($tweet[0]['value'], 'tweet');
+			
+			// add twitter js to speed things up
+			drupal_add_js('//platform.twitter.com/widgets.js', 'external');
+			
+		}
+		
+			
+	}
+	
+}

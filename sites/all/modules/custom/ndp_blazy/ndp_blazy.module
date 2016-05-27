@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Implements hook_preprocess().
+ *
+ * Add class and data-src for background images to entity items that have the correct image field.
+ */
+function ndp_blazy_preprocess(&$variables, $hook) {
+  
+	// initial image variable
+	$main_image = NULL;
+	
+	/**
+	 * RUN ON ANY ENTITY TYPE WITH BKIMAGE FIELD
+	 * ------------------------------------
+	 */
+  if (!empty($variables['entity_type']) && $variables['view_mode'] != 'teaser'){
+	
+		$type = $variables['entity_type'];
+		$entity = $variables[$type];
+		
+		/* ASSUMES BK IMG FIELD */
+		if(isset($entity->field_card_bkimage) && !empty($entity->field_card_bkimage)){
+			
+			$img = field_get_items($type, $variables[$type], 'field_card_bkimage');
+			$img_uri = $img[0]['uri'];
+			
+			$main_image['small']  = image_style_url('background_small', $img_uri);
+			$main_image['medium'] = image_style_url('background_medium', $img_uri);
+			$main_image['large']   = image_style_url('background_large', $img_uri);
+			
+			// load js
+			drupal_add_js(drupal_get_path('module', 'ndp_blazy') . '/blazy.min.js');
+			drupal_add_js(drupal_get_path('module', 'ndp_blazy') . '/ndp_blazy.js');
+			drupal_add_css(drupal_get_path('module', 'ndp_blazy') . '/ndp_blazy.css');
+						
+		}
+			
+	}
+	
+	
+	/**
+	 * Add attribute data-src with image url for later blazy load
+	 * ----------------------------------------------------------
+	 */
+	if(!empty($main_image)){
+		$variables['attributes_array']['data-src-small'] = $main_image['small'];
+		$variables['attributes_array']['data-src-medium'] = $main_image['medium'];
+		$variables['attributes_array']['data-src'] = $main_image['large'];
+		$variables['classes_array'][] = 'b-lazy';
+	}
+  
+}

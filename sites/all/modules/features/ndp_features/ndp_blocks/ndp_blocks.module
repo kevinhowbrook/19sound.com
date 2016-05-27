@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NDP Blocks feature.
+ */
+
+include_once 'ndp_blocks.features.inc';
