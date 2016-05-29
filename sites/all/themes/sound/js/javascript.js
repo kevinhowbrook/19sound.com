@@ -144,10 +144,10 @@ $(function() {
          * Tocify stuff
          */
         function tocifyColors(){
-          var colors = ['grad-red'];
+          var colors = ['1','2','3','4','5','6','7','8','9','10'];
           var color = colors[Math.floor(Math.random()*colors.length)];
           console.log(color);
-          $('.middle-region-wrapper').addClass(color);
+          $('.middle-region-wrapper').addClass('grad-' + color);
         } tocifyColors();
 
         function minHeightForTocifyPages(){
