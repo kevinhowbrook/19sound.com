@@ -104,7 +104,7 @@
 	<?php endif; ?>
 	
 	
-	<!-- <div id="footerwrap"> 
+	<div id="footerwrap"> 
 		<footer class="footer">
 			<div class="container">
 		  	<?php print render($page['footer']); ?>
@@ -117,6 +117,5 @@
 				</div>
 			</footer>
 		<?php endif; ?>
-	</div> -->
-	
+	</div>
 </div>
