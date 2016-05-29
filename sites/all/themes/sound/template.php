@@ -25,8 +25,8 @@ function sound_preprocess_page(&$variables) {
   }
   //FIRST SIDEBAR ONLY
   elseif (!empty($variables['page']['sidebar_first']) && empty($variables['page']['sidebar_second'])) {
-    $variables['content_column_class'] = ' class="main-content-column col-sm-11 col-sm-push-1"';
-    $variables['sidebar_first_class'] = ' class="sidebar sidebar-first col-sm-1 col-sm-pull-11"';
+    $variables['content_column_class'] = ' class="main-content-column col-sm-10 col-sm-push-2"';
+    $variables['sidebar_first_class'] = ' class="sidebar sidebar-first col-sm-2 col-sm-pull-10"';
   }
   //SECOND SIDEBAR ONLY
   elseif (empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
@@ -37,7 +37,10 @@ function sound_preprocess_page(&$variables) {
   else {
     $variables['content_column_class'] = ' class="main-content-column col-sm-12"';
   }
-  
+  if (isset($variables['node']->type)) {
+        $nodetype = $variables['node']->type;
+        $variables['theme_hook_suggestions'][] = 'page__' . $nodetype;
+    }
 
 }
 

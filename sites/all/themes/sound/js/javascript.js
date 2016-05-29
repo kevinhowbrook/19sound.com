@@ -108,7 +108,7 @@ function searchFor(_selector, _subject) {
 						$('iframe#' + id).vimeo("play");
 
   				})
-      } autoPlayBannerVid();
+      } //autoPlayBannerVid();
 
 
 
@@ -116,6 +116,7 @@ $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
+      console.log(target);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
         $('html, body').animate({
@@ -139,12 +140,20 @@ $(function() {
 //   };
 //   stickyNav();
         
+        /**
+         * Tocify stuff
+         */
         function tocifyColors(){
           var colors = ['grad-red'];
           var color = colors[Math.floor(Math.random()*colors.length)];
           console.log(color);
-          $('.tocify-pages').addClass(color);
+          $('.middle-region-wrapper').addClass(color);
         } tocifyColors();
+
+        function minHeightForTocifyPages(){
+          //var window_height = $(window).height();
+          $('.tocify-pages .views-row').css('min-height', $(window).height() + 400);
+        } minHeightForTocifyPages();
 
         function anmiations(){
           var $animation_elements = $('.animated');
@@ -167,16 +176,20 @@ $(function() {
                 $element.addClass('in-view');
               
               } else {
-                $element.removeClass('in-view');
+                //$element.removeClass('in-view');
               }
             });
           }
 
           $window.on('scroll resize', check_if_in_view);
           $window.trigger('scroll');
-          } //anmiations();
+          } anmiations();
         
-       
+        function stickyStuff(){
+          $(".sticky").sticky({topSpacing:20});
+        }  stickyStuff();
+
+        
 
     }
 	};

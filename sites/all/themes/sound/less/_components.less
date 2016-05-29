@@ -18,6 +18,11 @@
 }
 #block-tocify-tocify{
 	z-index: 2;
+	.tocify-item{
+		&.active{
+			background: #fff;
+		}
+	}
 }
 /**
  * DISPLAY LAYOUTS
@@ -215,11 +220,18 @@ body.navbar-tray-open.navbar-fixed.navbar-vertical #navbar-administration.navbar
 		border-bottom: 0 none;
 	}
 }
+.tocify-pages{
+	.views-row{
+//		min-height:900px;
+	}
+}
 
 /**
  * View modes
  */
-
+.group-window,.row-append{
+	color:#fff;
+}
 .view-mode-teaser{
 	&.node-work-post{
 		.group-window{

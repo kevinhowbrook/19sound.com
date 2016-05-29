@@ -7,19 +7,16 @@ base theme = bootstrap
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
-regions[navigation]     = 'Navigation'
-regions[header]         = 'Header'
+regions[top_sidebar] 		= 'Top sidebar'
+regions[top_content] 		= 'Top content' 	
+regions[middle_sidebar] = 'Middle sidebar'
+regions[middle_content]  = 'Middle content'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
-regions[content_top] 		= 'Content Top'
 regions[content]        = 'Content'
-regions[content_bottom] = 'Content Bottom'
 regions[sidebar_first]  = 'Sidebar First'
-regions[sidebar_second] = 'Sidebar Second'
 regions[footer]         = 'Footer'
 regions[footer_second]  = 'Footer Second'
-regions[page_top]       = 'Page top'
-regions[page_bottom]    = 'Page bottom'
 
 regions[slidebar_right] = 'Slidebar right - use with care'
 
@@ -66,4 +63,7 @@ settings[bootstrap_cdn] = ''
 ;;;;;;;;;;;;;;;;;;;;;
 scripts[] = 'js/jquery.vimeo.api.js'
 scripts[] = 'js/sidr/jquery.sidr.min.js'
+scripts[] = 'js/jquery.sticky.js'
+scripts[] = 'js/jquery-ui.min.js'
+scripts[] = 'js/jquery.tocify.min.js'
 scripts[] = 'js/javascript.js'

@@ -3,7 +3,9 @@
  * Any resets or base inherited styles
  * forms
  */
-
+body{
+	min-height: 100000px;
+}
 /**
  * baseline responsive img style - wont oversize
  */
@@ -14,7 +16,22 @@ img{
 .admin-menu .slide-nav{
 	padding-top: 45px;
 }
-
+.page-tabs{
+	margin-bottom: 0px;
+	> ul{
+		margin-bottom: 20px;
+		margin-top:20px;
+	}
+}
+.node-type-home-page.logged-in.navbar-administration{
+	background: @gray;
+	.page-info{
+		>div{
+			margin-bottom: 0px;
+			padding:1em;
+		}
+	}
+}
 /**
  * over rides to get round admin menu stuff 
  */
